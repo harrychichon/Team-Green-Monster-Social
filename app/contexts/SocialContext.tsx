@@ -1,11 +1,5 @@
 import { createContext, useState } from "react";
-import { PostProps } from "../types";
-
-type MonsterType = {
-  id: string;
-  userName: string;
-  picSource: string;
-};
+import { MonsterType, PostProps } from "../types";
 
 type SocialContextType = {
   monsters: MonsterType[];
@@ -16,11 +10,7 @@ type SocialContextType = {
 
 export const SocialContext = createContext<SocialContextType | null>(null);
 
-export const SocialContextProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+const SocialContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [monsters, setMonsters] = useState<MonsterType[]>([]);
   const [posts, setPosts] = useState<PostProps[]>([]);
 
@@ -32,3 +22,5 @@ export const SocialContextProvider = ({
     </SocialContext.Provider>
   );
 };
+
+export default SocialContextProvider;

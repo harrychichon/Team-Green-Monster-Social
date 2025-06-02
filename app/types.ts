@@ -5,3 +5,9 @@ export interface PostProps {
   postImageUrl?: string;
   text: string;
 }
+
+export type MonsterType = {
+  id: string;
+  userName: string;
+  picSource: string;
+};
