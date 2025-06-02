@@ -1,5 +1,6 @@
 import { MonsterType, PostType } from "../types";
 
+//mockdata med users
 export const monsterUsers: MonsterType[] = [
   {
     id: "1",
@@ -8,10 +9,11 @@ export const monsterUsers: MonsterType[] = [
   },
 ];
 
+//mockdata med inlägg
 export const monsterPosts: PostType[] = [
   {
     monsterUser: monsterUsers[0],
-    postedAt: "nu",
+    postedAt: Date(),
     postImageUrl: "23",
     text: "jajaja",
   },
