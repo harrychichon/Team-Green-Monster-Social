@@ -2,10 +2,10 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import useSocialContext from "@/app/hooks/useSocialContext";
 
 function PostComponent() {
-  const { monsters, posts, setPosts } = useSocialContext();
+  const { posts } = useSocialContext();
 
   return posts.map((post) => (
-    <View style={styles.container}>
+    <View key={post.monsterUser.id} style={styles.container}>
       <View style={styles.header}>
         <Image
           source={{ uri: post.monsterUser.picSource }}
