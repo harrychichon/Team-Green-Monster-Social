@@ -1,11 +1,5 @@
 import { createContext, useState } from "react";
-import { PostProps } from "../types";
-
-type MonsterType = {
-  id: string;
-  userName: string;
-  picSource: string;
-};
+import { MonsterType, PostProps } from "../types";
 
 type SocialContextType = {
   monsters: MonsterType[];
