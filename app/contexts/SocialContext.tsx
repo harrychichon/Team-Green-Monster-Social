@@ -16,11 +16,7 @@ type SocialContextType = {
 
 export const SocialContext = createContext<SocialContextType | null>(null);
 
-export const SocialContextProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+const SocialContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [monsters, setMonsters] = useState<MonsterType[]>([]);
   const [posts, setPosts] = useState<PostProps[]>([]);
 
@@ -32,3 +28,5 @@ export const SocialContextProvider = ({
     </SocialContext.Provider>
   );
 };
+
+export default SocialContextProvider;
