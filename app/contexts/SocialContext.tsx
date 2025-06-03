@@ -1,18 +1,19 @@
 import { createContext, useState } from "react";
-import { MonsterType, PostProps } from "../types";
+import { MonsterType, PostType } from "../types";
+import { monsterPosts, monsterUsers } from "../data/mockData";
 
 type SocialContextType = {
   monsters: MonsterType[];
   setMonsters: React.Dispatch<React.SetStateAction<MonsterType[]>>;
-  posts: PostProps[];
-  setPosts: React.Dispatch<React.SetStateAction<PostProps[]>>;
+  posts: PostType[];
+  setPosts: React.Dispatch<React.SetStateAction<PostType[]>>;
 };
 
 export const SocialContext = createContext<SocialContextType | null>(null);
 
 const SocialContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [monsters, setMonsters] = useState<MonsterType[]>([]);
-  const [posts, setPosts] = useState<PostProps[]>([]);
+  const [monsters, setMonsters] = useState<MonsterType[]>(monsterUsers);
+  const [posts, setPosts] = useState<PostType[]>(monsterPosts);
 
   const contextValue = { monsters, setMonsters, posts, setPosts };
 

@@ -1,35 +1,35 @@
-import { View, Text, StyleSheet, Image } from "react-native";
-import { PostProps } from "@/app/types";
+import { View, Text, StyleSheet, Image } from 'react-native';
+import useSocialContext from '@/app/hooks/useSocialContext';
+import CommentButton from '../buttons/commentButton';
 
+function PostComponent() {
+  const { posts } = useSocialContext();
 
-    
-function PostComponent(props: PostProps) {
-
-  // Hardcoded stuff change later
-  const name = props.name || "Anonymous";
-  const postedAt = props.postedAt || "Just now";
-  const profileImage = props.profileImage || "https://media.istockphoto.com/id/1445781372/sv/foto/tiger-looking-at-the-camera-on-a-black-background.jpg?s=2048x2048&w=is&k=20&c=GmfhJXx7HYuxo1vPk8dS0vntF42J_sQ14deAKn7Gc_E=";
-  const postImageUrl = "https://focus.independent.ie/thumbor/hw8MRpqWDc-IKK3L7nvbTf3egzY=/0x0:2500x1665/960x640/prod-mh-ireland/1ea19a34-c468-11ed-a8bd-0210609a3fe2";
-  const text = "Chillin with stupid Janne human...";
-  // Hardcoded stuff end
-  
-  return (
-    <View style={styles.container}>
-         <View style={styles.header}>
-        <Image source={{ uri: profileImage }} style={styles.profileImage} />
+  return posts.map(post => (
+    <View key={post.text} style={styles.container}>
+      <View style={styles.header}>
+        <Image
+          source={{ uri: post.monsterUser.picSource }}
+          style={styles.profileImage}
+        />
         <View style={styles.headerText}>
-          <Text style={styles.name}>{name}</Text>
-          <Text style={styles.postedAt}>{postedAt}</Text>
+          <Text style={styles.name}>{post.monsterUser.userName}</Text>
+          <Text style={styles.postedAt}>{post.postedAt}</Text>
         </View>
       </View>
-        {postImageUrl ? (
-        <Image source={{ uri: postImageUrl }} style={styles.postImage} />
+
+      {post.postImageUrl ? (
+        <Image source={{ uri: post.postImageUrl }} style={styles.postImage} />
       ) : null}
 
-      <Text style={styles.text}>{text}</Text>
+      <Text style={styles.text}>{post.text}</Text>
 
+      <View style={styles.buttonRow}>
+        <View style={{ flex: 1 }} />
+        <CommentButton />
+      </View>
     </View>
-  );
+  ));
 }
 
 const styles = StyleSheet.create({
@@ -44,25 +44,24 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   text: {
-    color: "#000",
+    color: '#000',
     fontSize: 14,
   },
   header: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 10,
-    backgroundColor: "#f8f8f8",
+    backgroundColor: '#f8f8f8',
     borderRadius: 10,
     marginBottom: 10,
-  },  
+  },
   profileImage: {
     width: 60,
     height: 60,
     borderRadius: 50,
     marginRight: 10,
   },
-  headerText: {
-  },
+  headerText: {},
   name: {
     fontWeight: '600',
     fontSize: 16,
@@ -71,15 +70,18 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#666',
   },
- postImage: {
+  postImage: {
     width: '100%',
     height: 200,
     borderRadius: 8,
     marginBottom: 8,
     resizeMode: 'cover',
   },
-
-
-}) 
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    marginTop: 10,
+  },
+});
 
 export default PostComponent;
