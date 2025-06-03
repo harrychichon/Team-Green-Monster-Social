@@ -1,16 +1,14 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import useSocialContext from "@/app/hooks/useSocialContext";
-import CommentButton from "../buttons/commentButton";
+import CommentButton from "../buttons/CommentButton";
 
 function PostComponent() {
 	const { posts } = useSocialContext();
 
 	return posts.map((post, id) => (
-		<View key={id} 
-    style={styles.container}>
+		<View key={id} style={styles.container}>
 			<View style={styles.header}>
-				<Image source={{ uri: post.monsterUser.picSource }} 
-        style={styles.profileImage} />
+				<Image source={{ uri: post.monsterUser.picSource }} style={styles.profileImage} />
 				<View style={styles.headerText}>
 					<Text style={styles.name}>{post.monsterUser.userName}</Text>
 					<Text style={styles.postedAt}>{post.postedAt}</Text>
