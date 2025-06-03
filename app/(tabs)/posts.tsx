@@ -2,49 +2,49 @@ import { StyleSheet, ScrollView, View } from "react-native";
 import PostComponent from "./../components/posts/PostComponent";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AddPostButton from "../components/buttons/addPostButton";
-import SwitchUserButton from "../components/buttons/SwitchUserButton";
+import SwitchUserButton from "../components/buttons/switchUserButton";
 
 export default function Posts() {
-  return (
-    <SafeAreaProvider style={styles.safeArea}>
-      <View style={styles.topButtonContainer}>
-        <SwitchUserButton />
-      </View>
+	return (
+		<SafeAreaProvider style={styles.safeArea}>
+			<View style={styles.topButtonContainer}>
+				<SwitchUserButton />
+			</View>
 
-      <ScrollView style={styles.scrollView}>
-        <PostComponent />
-      </ScrollView>
-      <View style={styles.addButtonContainer}>
-        <AddPostButton />
-      </View>
-    </SafeAreaProvider>
-  );
+			<ScrollView style={styles.scrollView}>
+				<PostComponent />
+			</ScrollView>
+			<View style={styles.addButtonContainer}>
+				<AddPostButton />
+			</View>
+		</SafeAreaProvider>
+	);
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: "#1e1e1e",
-    paddingVertical: 25,
-  },
-  container: {
-    display: "flex",
-    width: "100%",
-    paddingHorizontal: 20,
-    flex: 0,
-    backgroundColor: "#1e1e1e",
-  },
-  topButtonContainer: {
-    alignItems: "flex-end",
-    paddingHorizontal: 20,
-    marginBottom: 10,
-  },
-  scrollView: {
-    paddingHorizontal: 20,
-    backgroundColor: "#1e1e1e",
-  },
-  addButtonContainer: {
-    alignItems: "center",
-    marginVertical: 20,
-  },
+	safeArea: {
+		flex: 1,
+		backgroundColor: "#1e1e1e",
+		paddingVertical: 25,
+	},
+	container: {
+		display: "flex",
+		width: "100%",
+		paddingHorizontal: 20,
+		flex: 0,
+		backgroundColor: "#1e1e1e",
+	},
+	topButtonContainer: {
+		alignItems: "flex-end",
+		paddingHorizontal: 20,
+		marginBottom: 10,
+	},
+	scrollView: {
+		paddingHorizontal: 20,
+		backgroundColor: "#1e1e1e",
+	},
+	addButtonContainer: {
+		alignItems: "center",
+		marginVertical: 20,
+	},
 });
