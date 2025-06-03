@@ -1,6 +1,7 @@
+import useSocialContext from "@/app/hooks/useSocialContext";
 import { useRouter } from "expo-router";
 import React from "react";
-import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
+import { StyleSheet, TouchableOpacity, Image, View } from "react-native";
 
 export default function SwitchUserButton() {
 	const router = useRouter();
