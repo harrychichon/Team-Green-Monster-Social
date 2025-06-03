@@ -4,6 +4,7 @@ import { useRouter } from "expo-router";
 import useSocialContext from "../hooks/useSocialContext";
 
 import { MonsterType } from "../types";
+import { theme } from "../theme";
 export default function Index() {
 	const { monsters } = useSocialContext();
 	const { setCurrentUser } = useSocialContext();
@@ -50,13 +51,13 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 
-		backgroundColor: "#000",
+		backgroundColor: theme.color.background,
 		justifyContent: "center",
 		alignItems: "center",
 	},
 	header: {
-		color: "#fff",
-		fontSize: 24,
+		color: theme.color.text,
+		fontSize: theme.font.lg,
 		marginBottom: 40,
 	},
 	profileRow: {
@@ -70,13 +71,13 @@ const styles = StyleSheet.create({
 	profileImage: {
 		width: 80,
 		height: 80,
-		borderRadius: 40,
+		borderRadius: theme.radius.full,
 		borderWidth: 3,
 		marginBottom: 10,
 	},
 	profileName: {
-		fontSize: 12,
+		fontSize: theme.font.sm,
 		letterSpacing: 1,
-		color: "white",
+		color: theme.color.textSecondary,
 	},
 });
