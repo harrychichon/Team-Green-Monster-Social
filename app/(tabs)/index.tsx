@@ -1,10 +1,9 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { MonsterType } from "../types";
-
 import { useRouter } from "expo-router";
 import useSocialContext from "../hooks/useSocialContext";
 
+import { MonsterType } from "../types";
 export default function Index() {
 	const { monsters } = useSocialContext();
 	const { setCurrentUser } = useSocialContext();
