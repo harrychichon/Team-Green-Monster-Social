@@ -7,6 +7,8 @@ type SocialContextType = {
   setMonsters: React.Dispatch<React.SetStateAction<MonsterType[]>>;
   posts: PostType[];
   setPosts: React.Dispatch<React.SetStateAction<PostType[]>>;
+  currentUser: MonsterType | null;
+  setCurrentUser: React.Dispatch<React.SetStateAction<MonsterType | null>>;
 };
 
 export const SocialContext = createContext<SocialContextType | null>(null);
@@ -14,8 +16,16 @@ export const SocialContext = createContext<SocialContextType | null>(null);
 const SocialContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [monsters, setMonsters] = useState<MonsterType[]>(monsterUsers);
   const [posts, setPosts] = useState<PostType[]>(monsterPosts);
+  const [currentUser, setCurrentUser] = useState<MonsterType | null>(null);
 
-  const contextValue = { monsters, setMonsters, posts, setPosts };
+  const contextValue = {
+    monsters,
+    setMonsters,
+    posts,
+    setPosts,
+    currentUser,
+    setCurrentUser,
+  };
 
   return (
     <SocialContext.Provider value={contextValue}>
