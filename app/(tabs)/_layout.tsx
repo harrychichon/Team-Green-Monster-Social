@@ -10,9 +10,19 @@ export default function RootLayout() {
         tabBarStyle: {
           height: 70 + insets.bottom,
           borderTopWidth: 1,
-          borderTopColor: '#1e1e1e',
-          backgroundColor: '#1e1e1e',
+          borderTopColor: "#1e1e1e",
+          backgroundColor: "#1e1e1e",
           paddingBottom: 5 + insets.bottom,
+        },
+        tabBarIconStyle: {
+          justifyContent: "center",
+          width: 0,
+          height: 0,
+        },
+        tabBarItemStyle: {
+          justifyContent: "center", // eller 'flex-end' om du vill trycka ner labeln
+          alignItems: "center",
+          flexDirection: "row", // om du inte vill ha column
         },
       }}
     >
