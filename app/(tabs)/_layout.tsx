@@ -20,9 +20,9 @@ export default function RootLayout() {
           height: 0,
         },
         tabBarItemStyle: {
-          justifyContent: "center", // eller 'flex-end' om du vill trycka ner labeln
+          justifyContent: "center",
           alignItems: "center",
-          flexDirection: "row", // om du inte vill ha column
+          flexDirection: "row",
         },
       }}
     >
