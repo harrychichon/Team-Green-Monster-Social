@@ -1,4 +1,4 @@
-import { StyleSheet, ScrollView, View, Text } from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
 import PostComponent from "./../components/posts/PostComponent";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AddPostButton from "../components/buttons/addPostButton";
