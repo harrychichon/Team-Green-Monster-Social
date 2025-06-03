@@ -73,5 +73,6 @@ const styles = StyleSheet.create({
 	profileName: {
 		fontSize: 12,
 		letterSpacing: 1,
+		color: "white",
 	},
 });
