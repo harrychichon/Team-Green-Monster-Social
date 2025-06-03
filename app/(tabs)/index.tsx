@@ -19,23 +19,36 @@ const mockMonster: MonsterType[] = [
 		picSource: "https://idrottensaffarer.se/files/imagecache/100_proc/story_image/sdltc490d12-nh.jpg",
 	},
 ];
+
+import { useRouter } from "expo-router";
+
 export default function Index() {
+	const router = useRouter();
+	const borderColors = ["red", "green", "blue"];
+
 	return (
 		<SafeAreaProvider style={styles.container}>
 			<Text style={styles.header}>Choose user</Text>
 			<View style={styles.profileRow}>
 				{mockMonster.map((user, index) => {
-					const borderColors = ["red", "green", "blue"];
 					const borderColor = borderColors[index % borderColors.length];
-
 					return (
-						<View key={user.id} style={styles.profileContainer}>
+						<TouchableOpacity
+							key={user.id}
+							style={styles.profileContainer}
+							onPress={() =>
+								router.push({
+									pathname: "/(tabs)/posts",
+									params: { user: JSON.stringify(user) },
+								})
+							}
+						>
 							<Image
 								source={{ uri: user.picSource }}
 								style={[styles.profileImage, { borderColor }]}
 							/>
 							<Text style={styles.profileName}>{user.userName}</Text>
-						</View>
+						</TouchableOpacity>
 					);
 				})}
 			</View>
@@ -46,7 +59,7 @@ export default function Index() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: "#000", // black background
+		backgroundColor: "#000",
 		justifyContent: "center",
 		alignItems: "center",
 	},
@@ -61,7 +74,7 @@ const styles = StyleSheet.create({
 	},
 	profileContainer: {
 		alignItems: "center",
-		marginHorizontal: 10, // Add horizontal margin for spacing
+		marginHorizontal: 10,
 	},
 	profileImage: {
 		width: 80,
