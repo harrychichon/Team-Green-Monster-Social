@@ -2,7 +2,7 @@ import { StyleSheet, ScrollView, View } from "react-native";
 import PostComponent from "./../components/posts/PostComponent";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AddPostButton from "../components/buttons/addPostButton";
-import SwitchUserButton from "../components/buttons/SwitchUserButton";
+import SwitchUserButton from "../components/buttons/switchUserButton";
 
 export default function Posts() {
 	return (
