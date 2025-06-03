@@ -3,9 +3,9 @@ import { KeyboardAvoidingView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import CancelSendButton from "../components/buttons/cancelSendButton";
 import InputField from "../components/inputfield/Inputfield";
-import { PostProps } from "../types";
 import { router } from "expo-router";
 import useSocialContext from "../hooks/useSocialContext";
+import { PostType } from "../types";
 
 export default function CreatePost() {
 	const { posts, setPosts } = useSocialContext();
@@ -14,9 +14,12 @@ export default function CreatePost() {
 	const handlePostSubmit = () => {
 		if (newText.trim().length === 0) return;
 
-		const newPost: PostProps = {
-			profileImage: "",
-			name: "Current User",
+		const newPost: PostType = {
+			monsterUser: {
+				id: "",
+				userName: "",
+				picSource: "",
+			},
 			postedAt: new Date().toLocaleString(),
 			text: newText.trim(),
 		};
