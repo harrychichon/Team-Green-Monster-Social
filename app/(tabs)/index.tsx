@@ -2,11 +2,22 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import useSocialContext from "../hooks/useSocialContext";
-import { theme } from "../theme";
+
+import { MonsterType } from "../types";
 export default function Index() {
 	const { monsters } = useSocialContext();
+	const { setCurrentUser } = useSocialContext();
 	const router = useRouter();
-	const borderColors = ["red", "green", "blue"];
+	const borderColors = ["red", "green", "blue", "yellow", "purple", "orange"];
+
+	const submitHandle = (id: string) => {
+		const selectedUser = monsters.find((user: MonsterType) => user.id === id);
+		if (selectedUser) {
+			setCurrentUser(selectedUser);
+			console.log("Selected User:", selectedUser);
+			router.push("/posts");
+		}
+	};
 
 	return (
 		<SafeAreaProvider style={styles.container}>
@@ -18,12 +29,9 @@ export default function Index() {
 						<TouchableOpacity
 							key={user.id}
 							style={styles.profileContainer}
-							onPress={() =>
-								router.push({
-									pathname: "/(tabs)/posts",
-									params: { user: JSON.stringify(user) },
-								})
-							}
+							onPress={() => {
+								submitHandle(user.id);
+							}}
 						>
 							<Image
 								source={{ uri: user.picSource }}
@@ -42,13 +50,13 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 
-		backgroundColor: theme.color.background,
+		backgroundColor: "#000",
 		justifyContent: "center",
 		alignItems: "center",
 	},
 	header: {
-		color: theme.color.text,
-		fontSize: theme.font.lg,
+		color: "#fff",
+		fontSize: 24,
 		marginBottom: 40,
 	},
 	profileRow: {
@@ -62,13 +70,13 @@ const styles = StyleSheet.create({
 	profileImage: {
 		width: 80,
 		height: 80,
-		borderRadius: theme.radius.full,
+		borderRadius: 40,
 		borderWidth: 3,
 		marginBottom: 10,
 	},
 	profileName: {
-		fontSize: theme.font.sm,
+		fontSize: 12,
 		letterSpacing: 1,
-		color: theme.color.textSecondary,
+		color: "white",
 	},
 });
