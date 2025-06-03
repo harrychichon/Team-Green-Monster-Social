@@ -3,7 +3,7 @@ import { useRouter } from "expo-router";
 import React from "react";
 import { StyleSheet, TouchableOpacity, Image, View } from "react-native";
 
-export default function SwitchUserButton() {
+export default function UserSwitchButton() {
 	const router = useRouter();
 	const { currentUser } = useSocialContext();
 
