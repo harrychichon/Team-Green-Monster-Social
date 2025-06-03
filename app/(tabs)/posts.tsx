@@ -6,27 +6,33 @@ import SwitchUserButton from "../components/buttons/SwitchUserButton";
 
 export default function Posts() {
 	return (
-		<SafeAreaProvider style={styles.safeArea}>
-			<View style={styles.topButtonContainer}>
+		<SafeAreaProvider style={style.safeArea}>
+			<View style={style.topButtonContainer}>
 				<SwitchUserButton />
 			</View>
 
-			<ScrollView style={styles.scrollView}>
+			<ScrollView style={style.scrollView}>
 				<PostComponent />
 			</ScrollView>
-
-			<View style={styles.addButtonContainer}>
+			<View style={style.addButtonContainer}>
 				<AddPostButton />
 			</View>
 		</SafeAreaProvider>
 	);
 }
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
 	safeArea: {
 		flex: 1,
 		backgroundColor: "#1e1e1e",
-		paddingTop: 25,
+		paddingVertical: 25,
+	},
+	container: {
+		display: "flex",
+		width: "100%",
+		paddingHorizontal: 20,
+		flex: 0,
+		backgroundColor: "#1e1e1e",
 	},
 	topButtonContainer: {
 		alignItems: "flex-end",
