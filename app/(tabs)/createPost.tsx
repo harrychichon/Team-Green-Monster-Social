@@ -30,10 +30,10 @@ export default function CreatePost() {
 	};
 
 	return (
-		<SafeAreaProvider style={style.container}>
+		<SafeAreaProvider style={styles.container}>
 			<KeyboardAvoidingView style={{ flex: 1, width: "100%" }}>
-				<View style={style.inner}>
-					<Text style={style.label}>Write something…</Text>
+				<View style={styles.inner}>
+					<Text style={styles.label}>Write something…</Text>
 					<InputField
 						value={newText}
 						onChangeText={setNewText}
@@ -41,7 +41,7 @@ export default function CreatePost() {
 						multiline
 					/>
 
-					<View style={style.buttonRow}>
+					<View style={styles.buttonRow}>
 						<CancelSendButton title="Cancel" onPress={() => router.push("/posts")} />
 						<CancelSendButton title="Send" onPress={handlePostSubmit} />
 					</View>
@@ -51,7 +51,7 @@ export default function CreatePost() {
 	);
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: "center",
