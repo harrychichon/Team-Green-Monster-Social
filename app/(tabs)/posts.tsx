@@ -5,46 +5,46 @@ import AddPostButton from "../components/buttons/addPostButton";
 import UserSwitchButton from "../components/buttons/UserSwitchButton";
 
 export default function Posts() {
-	return (
-		<SafeAreaProvider style={styles.safeArea}>
-			<View style={styles.topButtonContainer}>
-				<UserSwitchButton />
-			</View>
+  return (
+    <SafeAreaProvider style={styles.safeArea}>
+      <View style={styles.topButtonContainer}>
+        <UserSwitchButton />
+      </View>
 
-			<ScrollView style={styles.scrollView}>
-				<PostComponent />
-			</ScrollView>
-			<View style={styles.addButtonContainer}>
-				<AddPostButton />
-			</View>
-		</SafeAreaProvider>
-	);
+      <ScrollView style={styles.scrollView}>
+        <PostComponent />
+      </ScrollView>
+      <View style={styles.addButtonContainer}>
+        <AddPostButton />
+      </View>
+    </SafeAreaProvider>
+  );
 }
 
 const styles = StyleSheet.create({
-	safeArea: {
-		flex: 1,
-		backgroundColor: "#1e1e1e",
-		paddingVertical: 25,
-	},
-	container: {
-		display: "flex",
-		width: "100%",
-		paddingHorizontal: 20,
-		flex: 0,
-		backgroundColor: "#1e1e1e",
-	},
-	topButtonContainer: {
-		alignItems: "flex-end",
-		paddingHorizontal: 20,
-		marginBottom: 10,
-	},
-	scrollView: {
-		paddingHorizontal: 20,
-		backgroundColor: "#1e1e1e",
-	},
-	addButtonContainer: {
-		alignItems: "center",
-		marginVertical: 20,
-	},
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#1e1e1e",
+    paddingTop: 25,
+  },
+  container: {
+    display: "flex",
+    width: "100%",
+    paddingHorizontal: 20,
+    flex: 0,
+    backgroundColor: "#1e1e1e",
+  },
+  topButtonContainer: {
+    alignItems: "flex-end",
+    paddingHorizontal: 20,
+    marginBottom: 10,
+  },
+  scrollView: {
+    paddingHorizontal: 20,
+    backgroundColor: "#1e1e1e",
+  },
+  addButtonContainer: {
+    alignItems: "center",
+    marginVertical: 20,
+  },
 });
