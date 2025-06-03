@@ -16,7 +16,7 @@ export default function Index() {
 		if (selectedUser) {
 			setCurrentUser(selectedUser);
 			console.log("Selected User:", selectedUser);
-			router.push("/(tabs)/posts");
+			router.push("/posts");
 		}
 	};
 
