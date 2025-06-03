@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
 import useSocialContext from '@/app/hooks/useSocialContext';
-import CommentButton from '../buttons/CommentButton';
+import CommentButton from '../buttons/commentButton';
 
 function PostComponent() {
   const { posts } = useSocialContext();
