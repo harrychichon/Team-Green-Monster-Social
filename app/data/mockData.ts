@@ -1,5 +1,6 @@
 import { MonsterType, RawPostData } from "../types";
 
+//MonsterUser mockdata
 export const monsterUsers: MonsterType[] = [
   {
     id: "1",
@@ -9,6 +10,7 @@ export const monsterUsers: MonsterType[] = [
   },
 ];
 
+//inlägg mockdata
 export const rawPostData: RawPostData[] = [
   {
     user: monsterUsers[0],
