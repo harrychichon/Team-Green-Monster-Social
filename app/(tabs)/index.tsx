@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     flex: 1,
 
     backgroundColor: theme.color.background,
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center",
   },
   header: {
