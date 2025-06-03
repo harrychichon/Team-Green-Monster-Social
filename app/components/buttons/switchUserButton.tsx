@@ -1,39 +1,33 @@
-import { useRouter } from 'expo-router';
-import React from 'react';
-import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
+import useSocialContext from "@/app/hooks/useSocialContext";
+import { useRouter } from "expo-router";
+import React from "react";
+import { StyleSheet, TouchableOpacity, Image, View } from "react-native";
 
 export default function SwitchUserButton() {
-  const router = useRouter();
+	const router = useRouter();
+	const { currentUser } = useSocialContext();
 
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={() => router.push('/')}>
-        <Text style={styles.text}>Switch User</Text>
-      </TouchableOpacity>
-    </View>
-  );
+	return (
+		<View style={styles.container}>
+			<TouchableOpacity onPress={() => router.push("/")}>
+				<Image source={{ uri: currentUser?.picSource }} style={[styles.profileImage]} />
+			</TouchableOpacity>
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    marginTop: 15,
-  },
-  button: {
-    backgroundColor: 'gray',
-    borderRadius: 20,
-    width: 125,
-    height: 45,
-    borderColor: '#424242',
-    borderWidth: 4,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 18,
-    color: 'white',
-    textAlign: 'center',
-  },
+	container: {
+		flexDirection: "row",
+		justifyContent: "flex-end",
+		alignItems: "center",
+		marginTop: 15,
+	},
+	profileImage: {
+		width: 80,
+		height: 80,
+		borderRadius: 40,
+		borderWidth: 3,
+		marginBottom: 10,
+	},
 });
