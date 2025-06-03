@@ -16,6 +16,7 @@ Team Green Monster Social is a mobile app that allows monsters to create posts a
 - TypeScript  
 
 ## 📁 Project Folder Structure
+```plaintext
 📦 app/
 ├── 📂 (tabs)/
 │   ├── 📄 createPost.tsx
@@ -44,7 +45,7 @@ Team Green Monster Social is a mobile app that allows monsters to create posts a
 │
 ├── 📄 types.ts
 └── 📄 _layout.tsx
-
+```
 ## 🚀 Getting Started
 
 1. Clone the project  
