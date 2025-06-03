@@ -6,7 +6,14 @@ export type MonsterType = {
 
 export type PostType = {
   monsterUser: MonsterType;
-  postedAt: string;
+  postedAt: Date;
+  postedAtDate: string;
+  postedAtTime: string;
   postImageUrl?: string;
   text: string;
+};
+export type RawPostData = {
+  user: MonsterType;
+  text: string;
+  image: string;
 };

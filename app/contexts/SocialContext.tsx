@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { MonsterType, PostType } from "../types";
-import { monsterPosts, monsterUsers } from "../data/mockData";
+import { monsterUsers } from "../data/mockData";
+import { monsterPosts } from "../data/monsterPosts";
 
 type SocialContextType = {
   monsters: MonsterType[];

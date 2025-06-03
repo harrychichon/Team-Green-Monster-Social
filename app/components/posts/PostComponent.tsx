@@ -4,6 +4,10 @@ import useSocialContext from "@/app/hooks/useSocialContext";
 function PostComponent() {
   const { posts } = useSocialContext();
 
+  posts.forEach((post) => {
+    console.log(post.postedAtTime);
+  });
+
   return posts.map((post) => (
     <View key={post.monsterUser.id} style={styles.container}>
       <View style={styles.header}>
@@ -13,7 +17,8 @@ function PostComponent() {
         />
         <View style={styles.headerText}>
           <Text style={styles.name}>{post.monsterUser.userName}</Text>
-          <Text style={styles.postedAt}>{post.postedAt}</Text>
+          <Text style={styles.postedAt}>{post.postedAtDate}</Text>
+          <Text style={styles.postedAt}>{post.postedAtTime}</Text>
         </View>
       </View>
       {post.postImageUrl ? (
