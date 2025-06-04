@@ -1,9 +1,20 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import useSocialContext from "@/app/hooks/useSocialContext";
-import CommentButton from "../buttons/CommentButton";
+import CommentButton from "../buttons/CommentsButton";
+import { useState } from "react";
+import { Modal, FlatList, TouchableOpacity } from "react-native";
 
 function PostComponent() {
 	const { posts } = useSocialContext();
+	const [comments, setComments] = useState<{ [key: number]: string[] }>({});
+	const [visiblePostId, setVisiblePostId] = useState<number | null>(null);
+
+	const handleAddComment = (postId: number, comment: string) => {
+	setComments(prev => ({
+		...prev,
+		[postId]: [...(prev[postId] || []), comment],
+	}));
+	};
 
 	return posts.map((post, id) => (
 		<View key={id} style={styles.container}>
@@ -23,7 +34,28 @@ function PostComponent() {
 
 			<View style={styles.buttonRow}>
 				<View style={{ flex: 1 }} />
-				<CommentButton />
+				{comments[id]?.length > 0 && (
+					<TouchableOpacity onPress={() => setVisiblePostId(id)}>
+						<Text>
+						{comments[id].length} comment{comments[id].length > 1 ? "s" : ""}
+						</Text>
+					</TouchableOpacity>
+				)}
+				<CommentButton postId={id} onAddComment={handleAddComment} />
+
+				<Modal visible={visiblePostId === id} onRequestClose={() => setVisiblePostId(null)}>
+					<View style={{ margin: 20 }}>
+						<Text>Comments</Text>
+
+						{(comments[id] || []).map((comment, index) => (
+						<Text key={index}>{comment}</Text>
+						))}
+
+						<TouchableOpacity onPress={() => setVisiblePostId(null)}>
+						<Text>Close</Text>
+						</TouchableOpacity>
+					</View>
+				</Modal>
 			</View>
 		</View>
 	));

@@ -1,27 +1,39 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { StyleSheet, TouchableOpacity, Text, TextInput, View } from "react-native";
 
-export default function CommentButton() {
-	const inputRef = useRef<TextInput>(null);
+type CommentButtonProps = {
+	postId: number;
+	onAddComment: (postId: number, comment: string) => void;
+  };
 
-	const showKeyboard = () => {
-		inputRef.current?.focus();
+export default function CommentButton({ postId, onAddComment }: CommentButtonProps) {
+	const [showInput, setShowInput] = useState(false);
+	const [comment, setComment] = useState("");
+
+	const handleSubmit = () => {
+	const trimmed = comment.trim();
+	if (!trimmed) return;
+	if (trimmed.length > 140) return alert("Max 140 characters");
+
+	onAddComment(postId, trimmed);
+	setComment("");
+	setShowInput(false);
 	};
 
 	return (
 		<View>
-			<TouchableOpacity style={styles.button} onPress={showKeyboard}>
-				<Text style={styles.text}>Comment</Text>
+			<TouchableOpacity style={styles.button} onPress={() => setShowInput(prev => !prev)}>
+				<Text style={styles.text}>{showInput ? "Cancel" : "Comment"}</Text>
 			</TouchableOpacity>
 
-			<TextInput
-				ref={inputRef}
-				style={styles.hiddenInput}
-				caretHidden
-				autoCorrect={false}
-				autoCapitalize="none"
-				underlineColorAndroid="transparent"
-			/>
+			{showInput && (
+				<View style={{ marginTop: 8 }}>
+					<TextInput value={comment} onChangeText={setComment} placeholder="Write a comment..." maxLength={140} />
+					<TouchableOpacity style={{ backgroundColor: "#424242", padding: 10, borderRadius: 6, alignItems: "center" }} onPress={handleSubmit}>
+						<Text style={{ color: "white" }}>Send</Text>
+					</TouchableOpacity>
+				</View>
+			)}
 		</View>
 	);
 }
@@ -41,11 +53,5 @@ const styles = StyleSheet.create({
 	text: {
 		fontSize: 16,
 		color: "white",
-	},
-	hiddenInput: {
-		height: 0,
-		width: 0,
-		opacity: 0,
-		position: "absolute",
 	},
 });
