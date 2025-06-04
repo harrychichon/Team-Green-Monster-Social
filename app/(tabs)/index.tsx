@@ -63,6 +63,8 @@ const styles = StyleSheet.create({
   profileRow: {
     flexDirection: "row",
     justifyContent: "center",
+    flexWrap: "wrap",
+    gap: 23,
   },
   profileContainer: {
     alignItems: "center",
