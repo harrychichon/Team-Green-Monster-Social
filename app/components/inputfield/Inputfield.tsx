@@ -1,5 +1,6 @@
-import React from "react";
-import { StyleSheet, TextInput, View } from "react-native";
+import React from 'react';
+import { StyleSheet, TextInput, View } from 'react-native';
+import { theme } from '../../theme';
 
 type InputFieldProps = {
 	value: string;
@@ -11,7 +12,7 @@ type InputFieldProps = {
 export default function InputField({
 	value,
 	onChangeText,
-	placeholder = "",
+	placeholder = '',
 	multiline = false,
 }: InputFieldProps) {
 	return (
@@ -21,7 +22,7 @@ export default function InputField({
 				value={value}
 				onChangeText={onChangeText}
 				placeholder={placeholder}
-				placeholderTextColor="#aaa"
+				placeholderTextColor='#aaa'
 				multiline={multiline}
 			/>
 		</View>
@@ -30,20 +31,20 @@ export default function InputField({
 
 const styles = StyleSheet.create({
 	wrapper: {
-		width: "100%",
-		marginVertical: 8,
+		width: '100%',
+		marginVertical: theme.space.sm,
 	},
 	input: {
-		backgroundColor: "#2a2a2a",
-		color: "#fff",
-		fontSize: 16,
-		padding: 12,
-		borderRadius: 8,
-		borderWidth: 1,
-		borderColor: "#444",
+		backgroundColor: theme.color.neutralLight,
+		color: theme.color.textSecondary,
+		fontSize: theme.font.md,
+		padding: theme.space.md,
+		borderRadius: theme.radius.md,
+		borderWidth: theme.size.borderWidth,
+		borderColor: theme.color.neutralLight,
 	},
 	multiline: {
 		height: 120,
-		textAlignVertical: "top", // so text starts at top on Android
+		textAlignVertical: 'top', // so text starts at top on Android
 	},
 });

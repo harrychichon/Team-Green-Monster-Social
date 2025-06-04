@@ -1,8 +1,15 @@
-import { View, Text, StyleSheet, Image } from "react-native";
-import useSocialContext from "@/app/hooks/useSocialContext";
-import CommentButton from "../buttons/CommentsButton";
-import { useState } from "react";
-import { Modal, TouchableOpacity } from "react-native";
+import useSocialContext from '@/app/hooks/useSocialContext';
+import { useState } from 'react';
+import {
+	Image,
+	Modal,
+	StyleSheet,
+	Text,
+	TouchableOpacity,
+	View,
+} from 'react-native';
+import { theme } from '../../theme';
+import CommentButton from '../buttons/CommentsButton';
 
 function PostComponent() {
   const { posts } = useSocialContext();
@@ -34,11 +41,14 @@ function PostComponent() {
         </View>
       </View>
 
-      {post.postImageUrl ? (
-        <Image source={{ uri: post.postImageUrl }} style={styles.postImage} />
-      ) : null}
+			{post.postImageUrl ? (
+				<Image
+					source={{ uri: post.postImageUrl }}
+					style={styles.postImage}
+				/>
+			) : null}
 
-      <Text style={styles.text}>{post.text}</Text>
+			<Text style={styles.text}>{post.text}</Text>
 
 			<View style={styles.buttonRow}>
 				<View style={{ flex: 1 }} />
@@ -60,7 +70,7 @@ function PostComponent() {
 						))}
 
 						<TouchableOpacity onPress={() => setVisiblePostId(null)}>
-						<Text>Close</Text>
+							<Text>Close</Text>
 						</TouchableOpacity>
 					</View>
 				</Modal>
@@ -72,57 +82,56 @@ function PostComponent() {
 );
 }
 
-
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "white",
-    padding: 12,
-    marginVertical: 8,
-    borderRadius: 8,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 3,
-  },
-  text: {
-    color: "#000",
-    fontSize: 14,
-  },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
-    backgroundColor: "#f8f8f8",
-    borderRadius: 10,
-    marginBottom: 10,
-  },
-  profileImage: {
-    width: 60,
-    height: 60,
-    borderRadius: 50,
-    marginRight: 10,
-  },
-  headerText: {},
-  name: {
-    fontWeight: "600",
-    fontSize: 16,
-  },
-  postedAt: {
-    fontSize: 12,
-    color: "#666",
-  },
-  postImage: {
-    width: "100%",
-    height: 200,
-    borderRadius: 8,
-    marginBottom: 8,
-    resizeMode: "cover",
-  },
-  buttonRow: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    marginTop: 10,
-  },
+	container: {
+		backgroundColor: theme.color.neutralLight,
+		padding: theme.space.md,
+		marginVertical: theme.space.sm,
+		borderRadius: theme.space.sm,
+		shadowColor: theme.shadow.medium.shadowColor,
+		shadowOpacity: theme.shadow.medium.shadowOpacity,
+		shadowRadius: theme.shadow.medium.shadowRadius,
+		elevation: theme.shadow.medium.elevation,
+	},
+	text: {
+		color: theme.color.textSecondary,
+		fontSize: theme.font.sm,
+	},
+	header: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		padding: theme.space.sm,
+		backgroundColor: '#f8f8f8',
+		borderRadius: theme.radius.md,
+		marginBottom: theme.space.sm,
+	},
+	profileImage: {
+		width: 60,
+		height: 60,
+		borderRadius: theme.radius.full,
+		marginRight: theme.space.sm,
+	},
+	headerText: {},
+	name: {
+		fontWeight: '600',
+		fontSize: theme.font.md,
+	},
+	postedAt: {
+		fontSize: theme.font.sm,
+		color: '#666',
+	},
+	postImage: {
+		width: '100%',
+		height: 200,
+		borderRadius: theme.radius.md,
+		marginBottom: theme.space.sm,
+		resizeMode: 'cover',
+	},
+	buttonRow: {
+		flexDirection: 'row',
+		justifyContent: 'flex-start',
+		marginTop: theme.space.sm,
+	},
 });
 
 export default PostComponent;
