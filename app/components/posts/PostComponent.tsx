@@ -1,12 +1,12 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
-import useSocialContext from '@/app/hooks/useSocialContext';
-import CommentButton from '../buttons/CommentButton';
+import { View, Text, StyleSheet, Image } from "react-native";
+import useSocialContext from "@/app/hooks/useSocialContext";
+import CommentButton from "../buttons/CommentsButton";
 
 function PostComponent() {
   const { posts } = useSocialContext();
 
-  return posts.map(post => (
-    <View key={post.text} style={styles.container}>
+  return posts.map((post, id) => (
+    <View key={id} style={styles.container}>
       <View style={styles.header}>
         <Image
           source={{ uri: post.monsterUser.picSource }}
@@ -34,24 +34,24 @@ function PostComponent() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 12,
     marginVertical: 8,
     borderRadius: 8,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowRadius: 5,
     elevation: 3,
   },
   text: {
-    color: '#000',
+    color: "#000",
     fontSize: 14,
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     padding: 10,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: "#f8f8f8",
     borderRadius: 10,
     marginBottom: 10,
   },
@@ -63,23 +63,23 @@ const styles = StyleSheet.create({
   },
   headerText: {},
   name: {
-    fontWeight: '600',
+    fontWeight: "600",
     fontSize: 16,
   },
   postedAt: {
     fontSize: 12,
-    color: '#666',
+    color: "#666",
   },
   postImage: {
-    width: '100%',
+    width: "100%",
     height: 200,
     borderRadius: 8,
     marginBottom: 8,
-    resizeMode: 'cover',
+    resizeMode: "cover",
   },
   buttonRow: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
+    flexDirection: "row",
+    justifyContent: "flex-start",
     marginTop: 10,
   },
 });

@@ -1,23 +1,83 @@
-import { StyleSheet, Text } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { useRouter } from "expo-router";
+import useSocialContext from "../hooks/useSocialContext";
 
+import { MonsterType } from "../types";
+import { theme } from "../theme";
 export default function Index() {
+  const { monsters } = useSocialContext();
+  const { setCurrentUser } = useSocialContext();
+  const router = useRouter();
+  const borderColors = ["red", "green", "blue", "yellow", "purple", "orange"];
+
+  const submitHandle = (id: string) => {
+    const selectedUser = monsters.find((user: MonsterType) => user.id === id);
+    if (selectedUser) {
+      setCurrentUser(selectedUser);
+      console.log("Selected User:", selectedUser);
+      router.push("/posts");
+    }
+  };
+
   return (
-    <SafeAreaProvider style={style.container}>
-      <Text style={style.text}>Login? Show users here</Text>
+    <SafeAreaProvider style={styles.container}>
+      <Text style={styles.header}>Choose user</Text>
+      <View style={styles.profileRow}>
+        {monsters.map((user, index) => {
+          const borderColor = borderColors[index % borderColors.length];
+          return (
+            <TouchableOpacity
+              key={user.id}
+              style={styles.profileContainer}
+              onPress={() => {
+                submitHandle(user.id);
+              }}
+            >
+              <Image
+                source={{ uri: user.picSource }}
+                style={[styles.profileImage, { borderColor }]}
+              />
+              <Text style={styles.profileName}>{user.userName}</Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
     </SafeAreaProvider>
   );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#1e1e1e',
+
+    backgroundColor: theme.color.background,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  text: {
-    color: '#89CFF0',
-    fontSize: 24,
+  header: {
+    color: theme.color.text,
+    fontSize: theme.font.lg,
+    marginBottom: 40,
+  },
+  profileRow: {
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  profileContainer: {
+    alignItems: "center",
+    marginHorizontal: 10,
+  },
+  profileImage: {
+    width: 80,
+    height: 80,
+    borderRadius: theme.radius.full,
+    borderWidth: 3,
+    marginBottom: 10,
+  },
+  profileName: {
+    fontSize: theme.font.sm,
+    letterSpacing: 1,
+    color: theme.color.textSecondary,
   },
 });
