@@ -1,10 +1,10 @@
 import { useRouter } from 'expo-router';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import useSocialContext from '../hooks/useSocialContext';
+import useSocialContext from './hooks/useSocialContext';
 
-import { theme } from '../theme';
-import { MonsterType } from '../types';
+import { theme } from './theme';
+import { MonsterType } from './types';
 export default function Index() {
 	const { monsters } = useSocialContext();
 	const { setCurrentUser } = useSocialContext();

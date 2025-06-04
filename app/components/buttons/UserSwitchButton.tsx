@@ -1,7 +1,7 @@
 import useSocialContext from '@/app/hooks/useSocialContext';
 import { useRouter } from 'expo-router';
 import React from 'react';
-import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { theme } from '../../theme';
 
 export default function UserSwitchButton() {
@@ -10,6 +10,7 @@ export default function UserSwitchButton() {
 
 	return (
 		<View style={styles.container}>
+			<Text style={styles.name}>GOA DJUR</Text>
 			<TouchableOpacity onPress={() => router.push('/')}>
 				<Image
 					source={{ uri: currentUser?.picSource }}
@@ -23,15 +24,22 @@ export default function UserSwitchButton() {
 const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
-		justifyContent: 'flex-end',
+		justifyContent: 'space-between',
 		alignItems: 'center',
 		marginTop: theme.space.md,
+		padding: theme.space.sm,
+		backgroundColor: theme.color.primary,
+	},
+	name: {
+		fontSize: theme.font.xxl,
+		color: theme.color.neutralDark,
+		fontWeight: 900,
 	},
 	profileImage: {
 		width: 80,
 		height: 80,
 		borderRadius: theme.radius.full,
 		borderWidth: 3,
-		marginBottom: theme.space.sm,
+		marginBottom: theme.space.md,
 	},
 });

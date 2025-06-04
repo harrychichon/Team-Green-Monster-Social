@@ -19,7 +19,11 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		elevation: theme.shadow.medium.elevation,
+		elevation: theme.shadow.light.elevation,
+		position: 'absolute',
+		bottom: 50,
+		left: 0,
+		right: 0,
 	},
 	button: {
 		backgroundColor: theme.color.primary,
@@ -28,6 +32,8 @@ const styles = StyleSheet.create({
 		height: 75,
 		justifyContent: 'flex-start',
 		alignItems: 'center',
+
+		elevation: theme.shadow.light.elevation,
 	},
 	text: {
 		fontSize: 50,
