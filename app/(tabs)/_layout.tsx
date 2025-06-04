@@ -24,6 +24,9 @@ export default function RootLayout() {
           alignItems: "center",
           flexDirection: "row",
         },
+        tabBarLabelStyle: {
+          fontSize: 17,
+        },
       }}
     >
       <Tabs.Screen
