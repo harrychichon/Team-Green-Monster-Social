@@ -1,5 +1,6 @@
 import { Tabs } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { theme } from "../theme";
 
 export default function RootLayout() {
   const insets = useSafeAreaInsets();
@@ -10,9 +11,18 @@ export default function RootLayout() {
         tabBarStyle: {
           height: 70 + insets.bottom,
           borderTopWidth: 1,
-          borderTopColor: '#1e1e1e',
-          backgroundColor: '#1e1e1e',
-          paddingBottom: 5 + insets.bottom,
+          borderTopColor: theme.color.background,
+          backgroundColor: theme.color.background,
+        },
+        tabBarIconStyle: {
+          justifyContent: "center",
+          width: 0,
+          height: 0,
+        },
+        tabBarItemStyle: {
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "row",
         },
       }}
     >
