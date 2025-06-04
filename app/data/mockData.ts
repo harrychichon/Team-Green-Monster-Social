@@ -53,7 +53,7 @@ export const monsterPosts: PostType[] = [
   },
   {
     id: "post3",
-    monsterUser: monsterUsers[2],
+    monsterUser: monsterUsers[3],
     postedAt: "1 timme sedan",
     postImageUrl:
       "https://t3.ftcdn.net/jpg/13/17/02/74/360_F_1317027462_YZR1CCjwZmhH1B807YUwlGgM2oq6U4CM.jpg",
@@ -61,7 +61,7 @@ export const monsterPosts: PostType[] = [
   },
   {
     id: "post4",
-    monsterUser: monsterUsers[3],
+    monsterUser: monsterUsers[4],
     postedAt: "Igår",
     postImageUrl:
       "https://thumbor.junction.travel/0dmdg4dnCYnItY38TP2744q2BeM=/1092x0/smart/https%3A%2F%2Fcontent.res.se%2Fsites%2Fdefault%2Ffiles%2Ffield%2Fimage%2Felefant2.jpg",
