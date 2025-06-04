@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 import {
   StyleSheet,
   TouchableOpacity,
   Text,
   TextInput,
   View,
-} from 'react-native';
+} from "react-native";
 
 export default function CommentButton() {
   const inputRef = useRef<TextInput>(null);
@@ -36,22 +36,22 @@ const styles = StyleSheet.create({
   button: {
     width: 120,
     height: 35,
-    backgroundColor: '#757575',
+    backgroundColor: "#757575",
     borderRadius: 8,
     borderWidth: 4,
-    borderColor: '#424242',
-    justifyContent: 'center',
-    alignItems: 'center',
+    borderColor: "#424242",
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 10,
   },
   text: {
     fontSize: 16,
-    color: 'white',
+    color: "white",
   },
   hiddenInput: {
     height: 0,
     width: 0,
     opacity: 0,
-    position: 'absolute',
+    position: "absolute",
   },
 });
