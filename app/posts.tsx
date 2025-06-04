@@ -1,23 +1,21 @@
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import AddPostButton from '../components/buttons/addPostButton';
-import UserSwitchButton from '../components/buttons/UserSwitchButton';
-import { theme } from '../theme';
-import PostComponent from './../components/posts/PostComponent';
+import AddPostButton from './components/buttons/addPostButton';
+import UserSwitchButton from './components/buttons/UserSwitchButton';
+import PostComponent from './components/posts/PostComponent';
+import { theme } from './theme';
 
 export default function Posts() {
 	return (
 		<SafeAreaProvider style={styles.safeArea}>
-			<View style={styles.topButtonContainer}>
-				<UserSwitchButton />
-			</View>
+			{/* <View style={styles.topButtonContainer}>
+			</View> */}
+			<UserSwitchButton />
 
 			<ScrollView style={styles.scrollView}>
 				<PostComponent />
 			</ScrollView>
-			<View style={styles.addButtonContainer}>
-				<AddPostButton />
-			</View>
+			<AddPostButton />
 		</SafeAreaProvider>
 	);
 }
@@ -39,13 +37,10 @@ const styles = StyleSheet.create({
 		alignItems: 'flex-end',
 		paddingHorizontal: theme.space.md,
 		marginBottom: theme.space.sm,
+		backgroundColor: 'transparent',
 	},
 	scrollView: {
 		paddingHorizontal: theme.space.md,
 		backgroundColor: theme.color.background,
-	},
-	addButtonContainer: {
-		alignItems: 'center',
-		marginTop: theme.space.md,
 	},
 });

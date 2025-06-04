@@ -9,10 +9,21 @@ export default function RootLayout() {
 			<SafeAreaProvider>
 				<Stack>
 					<Stack.Screen
-						name='(tabs)'
+						name='createPost'
 						options={{ headerShown: false }}
 					/>
-					<Stack.Screen name='+not-found' />
+					<Stack.Screen
+						name='index'
+						options={{ headerShown: false }}
+					/>
+					<Stack.Screen
+						name='posts'
+						options={{ headerShown: false }}
+					/>
+					<Stack.Screen
+						name='+not-found'
+						options={{ headerShown: false }}
+					/>
 				</Stack>
 			</SafeAreaProvider>
 		</SocialContextProvider>
