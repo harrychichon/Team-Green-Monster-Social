@@ -36,6 +36,7 @@ export const monsterUsers: MonsterType[] = [
 
 export const monsterPosts: PostType[] = [
   {
+    id: "post1",
     monsterUser: monsterUsers[0],
     postedAt: "Just nu",
     postImageUrl:
@@ -43,6 +44,7 @@ export const monsterPosts: PostType[] = [
     text: "Tiger här, nyvaken och hungrig! 🐯",
   },
   {
+    id: "post2",
     monsterUser: monsterUsers[1],
     postedAt: "10 min sedan",
     postImageUrl:
@@ -50,6 +52,7 @@ export const monsterPosts: PostType[] = [
     text: "Krossade en bananrekord igen 💪🍌",
   },
   {
+    id: "post3",
     monsterUser: monsterUsers[2],
     postedAt: "1 timme sedan",
     postImageUrl:
@@ -57,6 +60,7 @@ export const monsterPosts: PostType[] = [
     text: "Sovit i bambuskogen 🌿🐼",
   },
   {
+    id: "post4",
     monsterUser: monsterUsers[3],
     postedAt: "Igår",
     postImageUrl:

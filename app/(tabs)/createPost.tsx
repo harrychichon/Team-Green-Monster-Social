@@ -20,6 +20,7 @@ export default function CreatePost() {
 			return;
 		}
 		const newPost: PostType = {
+			id: Date.now().toString(),
 			monsterUser: currentUser,
 			postedAt: new Date().toLocaleString(),
 			text: newText.trim(),

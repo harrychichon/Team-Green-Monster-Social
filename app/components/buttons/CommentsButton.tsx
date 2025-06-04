@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react";
 import { StyleSheet, TouchableOpacity, Text, TextInput, View } from "react-native";
 
 type CommentButtonProps = {
-	postId: number;
-	onAddComment: (postId: number, comment: string) => void;
+	postId: string;
+	onAddComment: (postId: string, comment: string) => void;
   };
 
 export default function CommentButton({ postId, onAddComment }: CommentButtonProps) {

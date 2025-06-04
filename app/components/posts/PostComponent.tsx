@@ -2,22 +2,27 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import useSocialContext from "@/app/hooks/useSocialContext";
 import CommentButton from "../buttons/CommentsButton";
 import { useState } from "react";
-import { Modal, FlatList, TouchableOpacity } from "react-native";
+import { Modal, TouchableOpacity } from "react-native";
 
 function PostComponent() {
-	const { posts } = useSocialContext();
-	const [comments, setComments] = useState<{ [key: number]: string[] }>({});
-	const [visiblePostId, setVisiblePostId] = useState<number | null>(null);
+  const { posts } = useSocialContext();
+  const [comments, setComments] = useState<{ [key: string]: string[] }>({});
+  const [visiblePostId, setVisiblePostId] = useState<string | null>(null);
 
-	const handleAddComment = (postId: number, comment: string) => {
-	setComments(prev => ({
-		...prev,
-		[postId]: [...(prev[postId] || []), comment],
-	}));
-	};
+  const handleAddComment = (postId: string, comment: string) => {
+  setComments(prev => ({
+	  ...prev,
+	  [postId]: [...(prev[postId] || []), comment],
+  }));
+  };
 
-  return posts.map((post, id) => (
-    <View key={id} style={styles.container}>
+  return (
+	<View>
+	{posts.map((post) => {
+	const postId = post.id;
+
+	return (
+	<View key={postId} style={styles.container}>
       <View style={styles.header}>
         <Image
           source={{ uri: post.monsterUser.picSource }}
@@ -37,20 +42,20 @@ function PostComponent() {
 
 			<View style={styles.buttonRow}>
 				<View style={{ flex: 1 }} />
-				{comments[id]?.length > 0 && (
-					<TouchableOpacity onPress={() => setVisiblePostId(id)}>
+				{comments[postId]?.length > 0 && (
+					<TouchableOpacity onPress={() => setVisiblePostId(postId)}>
 						<Text>
-						{comments[id].length} comment{comments[id].length > 1 ? "s" : ""}
+						{comments[postId].length} comment{comments[postId].length > 1 ? "s" : ""}
 						</Text>
 					</TouchableOpacity>
 				)}
-				<CommentButton postId={id} onAddComment={handleAddComment} />
+				<CommentButton postId={postId} onAddComment={handleAddComment} />
 
-				<Modal visible={visiblePostId === id} onRequestClose={() => setVisiblePostId(null)}>
+				<Modal visible={visiblePostId === postId} onRequestClose={() => setVisiblePostId(null)}>
 					<View style={{ margin: 20 }}>
 						<Text>Comments</Text>
 
-						{(comments[id] || []).map((comment, index) => (
+						{(comments[postId] || []).map((comment, index) => (
 						<Text key={index}>{comment}</Text>
 						))}
 
@@ -61,8 +66,12 @@ function PostComponent() {
 				</Modal>
 			</View>
 		</View>
-	));
+	  );
+    })}
+  </View>
+);
 }
+
 
 const styles = StyleSheet.create({
   container: {
