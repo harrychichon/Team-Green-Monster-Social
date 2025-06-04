@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import {
   StyleSheet,
   TouchableOpacity,
