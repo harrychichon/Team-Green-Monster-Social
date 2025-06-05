@@ -8,10 +8,7 @@ import { theme } from './theme';
 export default function Posts() {
 	return (
 		<SafeAreaProvider style={styles.safeArea}>
-			{/* <View style={styles.topButtonContainer}>
-			</View> */}
 			<UserSwitchButton />
-
 			<ScrollView style={styles.scrollView}>
 				<PostComponent />
 			</ScrollView>
