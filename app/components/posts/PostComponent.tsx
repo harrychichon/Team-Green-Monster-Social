@@ -12,8 +12,8 @@ import { theme } from '../../theme';
 import CommentButton from '../buttons/CommentsButton';
 
 function PostComponent() {
-  const { posts } = useSocialContext();
-  const [comments, setComments] = useState<{ [key: string]: string[] }>({});
+  const { posts, comments, setComments } = useSocialContext();
+  //const [comments, setComments] = useState<{ [key: string]: string[] }>({});
   const [visiblePostId, setVisiblePostId] = useState<string | null>(null);
 
   const handleAddComment = (postId: string, comment: string) => {

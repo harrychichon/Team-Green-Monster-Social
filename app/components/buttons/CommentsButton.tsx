@@ -7,6 +7,7 @@ import {
 	View,
 } from 'react-native';
 import { theme } from '../../theme';
+import useSocialContext from '@/app/hooks/useSocialContext';
 
 type CommentButtonProps = {
 	postId: string;
@@ -17,6 +18,7 @@ export default function CommentButton({
 	postId,
 	onAddComment,
 }: CommentButtonProps) {
+
 	const [showInput, setShowInput] = useState(false);
 	const [comment, setComment] = useState('');
 
