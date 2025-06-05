@@ -7,7 +7,6 @@ import {
 	View,
 } from 'react-native';
 import { theme } from '../../theme';
-import useSocialContext from '@/app/hooks/useSocialContext';
 
 type CommentButtonProps = {
 	postId: string;

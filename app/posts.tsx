@@ -20,7 +20,7 @@ export default function Posts() {
 const styles = StyleSheet.create({
 	safeArea: {
 		flex: 1,
-		backgroundColor: theme.color.neutralLight,
+		backgroundColor: theme.color.background,
 		paddingTop: theme.space.lg,
 	},
 	container: {

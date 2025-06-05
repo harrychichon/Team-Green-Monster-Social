@@ -11,4 +11,6 @@ export const COLORS = {
 
 	neutralLight: '#F2F2F2',
 	neutralDark: '#333333',
+
+	black: '#000000',
 };

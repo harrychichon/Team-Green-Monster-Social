@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		elevation: theme.shadow.light.elevation,
-		position: 'absolute',
-		bottom: 50,
+		bottom: 80,
 		left: 0,
 		right: 0,
 	},
@@ -30,14 +29,16 @@ const styles = StyleSheet.create({
 		borderRadius: theme.radius.full,
 		width: 75,
 		height: 75,
-		justifyContent: 'flex-start',
-		alignItems: 'center',
-
 		elevation: theme.shadow.light.elevation,
 	},
 	text: {
+		position: 'absolute',
+
+		top: -12,
+		left: 17,
 		fontSize: 50,
-		color: theme.color.neutralLight,
+		color: theme.color.black,
 		textAlign: 'center',
+		justifyContent: 'center',
 	},
 });

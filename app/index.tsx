@@ -37,7 +37,6 @@ export default function Index() {
 								source={{ uri: user.picSource }}
 								style={[styles.profileImage, { borderColor }]}
 							/>
-							<Text style={styles.profileName}>{user.userName}</Text>
 						</TouchableOpacity>
 					);
 				})}
@@ -49,25 +48,22 @@ export default function Index() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-
 		backgroundColor: theme.color.background,
 		justifyContent: 'center',
 		alignItems: 'center',
+		paddingTop: theme.space.lg,
 	},
 	header: {
 		color: theme.color.text,
 		fontSize: theme.font.lg,
 		marginBottom: 40,
 	},
-	profileRow: {
+		profileRow: {
 		flexDirection: 'row',
-		justifyContent: 'center',
-		flexWrap: 'wrap',
-		gap: 23,
 	},
 	profileContainer: {
 		alignItems: 'center',
-		marginHorizontal: theme.space.sm,
+		display: 'flex',
 	},
 	profileImage: {
 		width: 80,
